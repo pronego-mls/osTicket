@@ -1731,6 +1731,10 @@ implements RestrictedAccess, Threadable, Searchable {
                         $recipients[] = $acct_manager;
                 }
 
+                // pronego (mls@pronego.com, 2023-02-27): Add supervisor notification
+                if ($supervisor = Staff::lookup($this->cdata->supervisor))
+                    $recipients[] = $supervisor;
+
                 foreach ($recipients as $k=>$staff) {
                     if (!is_object($staff)
                         || !$staff->isAvailable()
@@ -1987,6 +1991,10 @@ implements RestrictedAccess, Threadable, Searchable {
 
             if ($team = $this->getTeam())
                 $recipients = array_merge($recipients, $team->getMembersForAlerts());
+
+            // pronego (mls@pronego.com, 2023-02-27): Add supervisor notification
+            if ($supervisor = Staff::lookup($this->cdata->supervisor))
+                $recipients[] = $supervisor;
         }
 
         // Dept manager
@@ -3249,6 +3257,10 @@ implements RestrictedAccess, Threadable, Searchable {
                 else
                     $recipients[] = $acct_manager;
             }
+
+            // pronego (mls@pronego.com, 2023-02-27): Add supervisor notification
+            if ($supervisor = Staff::lookup($ticket->cdata->supervisor))
+                $recipients[] = $supervisor;
 
             $sentlist = array(); //I know it sucks...but..it works.
             foreach ($recipients as $k=>$staff) {
