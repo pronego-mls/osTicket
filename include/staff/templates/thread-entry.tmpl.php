@@ -78,7 +78,9 @@ if ($user && $cfg->isAvatarsEnabled())
                 $timeFormat ? 'class="relative"' : '',
                 date(DateTime::W3C, Misc::db2gmtime($entry->created)),
                 Format::daydatetime($entry->created),
-                $timeFormat ? $timeFormat($entry->created) : Format::datetime($entry->created)
+//                $timeFormat ? $timeFormat($entry->created) : Format::datetime($entry->created)
+                  Format::daydatetime($entry->created) // pronego, 2023-03-14, Format::datetime() results in wrong time
+
             )
         ); ?>
         <span style="max-width:400px" class="faded title truncate"><?php

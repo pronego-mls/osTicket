@@ -1050,7 +1050,7 @@
     border-bottom-color: #007dff; }
 
 .redactor-styles {
-  margin: 0;
+  margin: 0 !important; /*pronego, added !important*/
   padding: 16px 18px;
   color: #333;
   font-family: "Trebuchet MS", "Helvetica Neue", Helvetica, Tahoma, sans-serif;
@@ -1411,4 +1411,8 @@
 .redactor-modal .redactor-toolbar {
     border-bottom: 1px solid rgba(0,0,0,.05);
     box-shadow: 0 3px 5px -5px rgba(0,0,0,.5);
+}
+/* pronego, added for full width editor */
+.redactor-in {
+  max-width: 100% !important;
 }
