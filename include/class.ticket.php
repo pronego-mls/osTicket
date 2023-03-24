@@ -4554,9 +4554,9 @@ implements RestrictedAccess, Threadable, Searchable {
             $autorespond=false;
 
         # Messages that are clearly auto-responses from email systems should
-        # not have a return 'ping' message
-        if (isset($vars['mailflags']) && $vars['mailflags']['bounce'])
-            $autorespond = false;
+        # not have a return 'ping' message -> Removed 2023-02-14 by MLS (mls@pronego.com) because blocking auto-responder messages
+//        if (isset($vars['mailflags']) && $vars['mailflags']['bounce'])
+//            $autorespond = false;
         if ($autorespond && $message instanceof ThreadEntry && $message->isAutoReply())
             $autorespond = false;
 
