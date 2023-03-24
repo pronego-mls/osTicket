@@ -948,7 +948,8 @@ class TicketFilter {
             'Subject'   => array('stripos',
                 array('DELIVERY FAILURE', 'DELIVERY STATUS',
                     'UNDELIVERABLE:', 'Undelivered Mail Returned'), 0),
-            'Return-Path'   => array('strcmp', array('<>'), 0),
+// pronego (2023-02-27): Commented because very often we have "Return-path: <>" set in the header of correct email responses.
+//            'Return-Path'   => array('strcmp', array('<>'), 0),
             'Content-Type'  => array('stripos', array('report-type=delivery-status'), null, false),
             'X-Failed-Recipients' => array('strpos', array('@'), null, false)
         );
