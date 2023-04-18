@@ -74,6 +74,10 @@ if ($thisclient && $thisclient->isGuest()
                     <th><?php echo __('Create Date');?>:</th>
                     <td><?php echo Format::datetime($ticket->getCreateDate()); ?></td>
                 </tr>
+                <tr>
+                    <th><?php echo __('Due Date');?>:</th>
+                    <td><?php echo Format::datetime($ticket->getEstDueDate()); ?></td>
+                </tr>
            </table>
        </td>
        <td width="50%">
